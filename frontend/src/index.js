@@ -6,9 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit'
 import itemReducer from './features/ItemSlice/ItemSlice'
+import cartReducer from './features/cartSlice/cartSlice'
 const store=configureStore({
   reducer: {
-    item:itemReducer
+    item:itemReducer,
+    carts:cartReducer
   }
 })
 

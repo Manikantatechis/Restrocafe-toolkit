@@ -2,30 +2,31 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import ImgIconHeart from "../../assets/img/heart.svg";
 import AddtoCart from '../../assets/img/cart.svg';
-// import { addCart, increaseCart, decreaseCart } from "../../reducks/carts/operations";
+import { addCart, increaseCart, decreaseCart } from "../../features/cartSlice/operations";
 
 const Item = ({ item, selected_count, setShowWriteReview, setShowReviews, setSelectedItemId }) => {
-  // const dispatch = useDispatch();
-  // const clickAddCart = () => {
-  //   dispatch(addCart(item));
-  // };
-  // const clickPlusCart = () => {
-  //   dispatch(increaseCart(item));
-  // };
-  // const clickMinusCart = () => {
-  //   dispatch(decreaseCart(item));
-  // };
-  // const clickCheckReviews = () => {
-  //   setSelectedItemId(item.id);
-  //   setShowReviews(true);
-  // };
-  // const clickWriteReview = () => {
-  //   setSelectedItemId(item.id);
-  //   setShowWriteReview(true);
-  // };
+  const dispatch = useDispatch();
+  const clickAddCart = () => {
+    dispatch(addCart(item));
+    console.log(item, 'items');
+  };
+  const clickPlusCart = () => {
+    dispatch(increaseCart(item));
+  };
+  const clickMinusCart = () => {
+    dispatch(decreaseCart(item));
+  };
+  const clickCheckReviews = () => {
+    setSelectedItemId(item.id);
+    setShowReviews(true);
+  };
+  const clickWriteReview = () => {
+    setSelectedItemId(item.id);
+    setShowWriteReview(true);
+  };
   return (
     <>
-      {/* <div className="item">
+      <div className="item">
         <div className="item-image">
           <img src={item.image} alt="" />
         </div>
@@ -50,19 +51,24 @@ const Item = ({ item, selected_count, setShowWriteReview, setShowReviews, setSel
               </div>
             ) : (
               <div class="number">
-                <span class="minus" onClick={clickMinusCart}>
+                <span class="minus" 
+                onClick={clickMinusCart}
+                >
                   －
                 </span>
-                <span class="count">{selected_count}</span>
-                <span class="plus" onClick={clickPlusCart}>
+                <span class="count">0</span>
+                <span class="plus" 
+                onClick={clickPlusCart}
+                >
                   +
                 </span>
               </div>
+
             )}
             <div class="price">${item.price}</div>
           </div>
         </div>
-      </div> */}
+      </div>
     </>
   );
 };

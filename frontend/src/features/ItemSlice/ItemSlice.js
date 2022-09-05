@@ -6,9 +6,10 @@ const itemSlice= createSlice({
     reducers: {
         fetchItemAction:(state, action) =>{
             state.list= action.payload
-        }
+        },
+        
     }
 })
-export const getItems= (state)=>state.list
+export const getItems= (state)=>state.item.list
 export const {fetchItemAction}= itemSlice.actions
 export default itemSlice.reducer
